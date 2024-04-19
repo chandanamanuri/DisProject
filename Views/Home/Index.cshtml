@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Grand Book Club</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("path/to/book-background.jpg"); /* Add a background image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: #333; /* Darker text for better contrast */
+    }
+
+    /* Header */
+    header {
+      background-color: #2d545e; /* Night Blue */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+      header h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        animation: title-shadow 0.5s ease-in-out infinite alternate; /* Add subtle shadow animation */
+      }
+
+      
+
+    /* Navigation */
+    nav {
+      text-align: center;
+      padding: 10px 0;
+      background-color: #c89666; /* Sand Tan Shadow */
+    }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+        nav a:hover {
+          background-color: #e1b382; /* Sand Tan */
+          color: #fff;
+        }
+
+    /* Main Content */
+    main {
+      padding: 20px;
+    }
+
+    /* About the Book Club */
+    .about {
+      background-color: #e1b382; /* Sand Tan */
+      color: #333; /* Darker text for contrast */
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+      .about p {
+        text-align: center;
+        font-size: 1.2em;
+        line-height: 1.5; /* Improve readability */
+      }
+
+    /* Featured Books */
+    .featured-books {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      background-color: #f5f5f5; /* Light Grey */
+    }
+
+        .featured-books {
+            /* Existing styles... */
+        }
+
+        .featured-book {
+            background-color: #def2f5; /* Light Green */ /* Adjust as needed */
+            color: #333; /* Darker text for contrast */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            flex: 1 1 300px;
+            max-width: 300px;
+            overflow: hidden; /* Needed for hover effect */
+            position: relative; /* Needed for hover effect */
+        }
+
+            .featured-book:hover {
+                background-color: #c2d6db; /* Slightly darker green on hover */ /* Adjust as needed */
+            }
+
+            .featured-book .featured-book-img {
+                width: 100%;
+                height: 150px; /* Adjust image height as needed */
+            }
+
+        .featured-book-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s; /* Add smooth fade-in on hover */
+        }
+
+        .featured-book-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .featured-book-author {
+            font-style: italic;
+        }
+
+
+    /* Upcoming Events Section Heading */
+    .event {
+      background-color: #e1b382; /* Sand Tan */
+      color: #333; /* Darker text for contrast */
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+      .event h2 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+    /* Sign Up Button */
+    .cta {
+      text-align: center;
+      margin-bottom: 20px; /* Add some space after the button */
+    }
+
+      .cta button {
+        padding: 15px 30px;
+        font-size: 1.2em;
+        background-color: #2d545e; /* Night Blue */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+        .cta button:hover {
+          background-color: #12343b; /* Night Blue Shadow */
+        }
+
+    /* Social Media Icons */
+    .social-media {
+      text-align: center;
+      margin-top: 20px;
+      background-color: #f5f5f5; /* Light Grey */
+    }
+
+      .social-media a {
+        margin: 0 10px;
+        font-size: 1.5em;
+        color: #2d545e; /* Night Blue */
+        transition: color 0.3s;
+      }
+
+        .social-media a:hover {
+          color: #12343b; /* Night Blue Shadow */
+        }
+
+    /* Footer */
+    footer {
+      background-color: #2d545e; /* Night Blue */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Grand Book Club</h1>
+  </header>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="About" asp-action="Index">About Us</a>
+        <a asp-controller="FeaturedBooks" asp-action="Index">Featured Books</a>
+        <a asp-controller="Membership" asp-action="Index">Membership</a>
+        <a asp-controller="SignUp" asp-action="Index">Sign up</a>
+    </nav>
+
+  <main>
+    <section class="about">
+      <p>The Grand Book Club is a community of passionate readers who love to discover new books and discuss them with others. We host regular meetings where members can share their thoughts on the latest reads, connect with fellow bookworms, and enjoy the company of other literature enthusiasts.</p>
+    </section>
+
+    <h2>Featured Books</h2>
+    <section class="featured-books">
+      <div class="featured-book">
+        <img class="featured-book-img" src="path/to/book1.jpg" alt="Book 1 Cover">
+        <div class="featured-book-overlay">
+          <h3 class="featured-book-title">Book Title 1</h3>
+          <p class="featured-book-author">By Author Name</p>
+        </div>
+      </div>
+
+      <div class="featured-book">
+        <img class="featured-book-img" src="path/to/book2.jpg" alt="Book 2 Cover">
+        <div class="featured-book-overlay">
+          <h3 class="featured-book-title">Book Title 2</h3>
+          <p class="featured-book-author">By Author Name</p>
+                  </div>
+      </div>
+      </section>
+
+    <h2>Upcoming Events</h2>
+    <section class="event">
+      <h2>Join us on [Date] at [Time] to discuss [Book Title].</h2>
+      <p>Location: [Meeting Location]</p>
+    </section>
+
+    <section class="cta">
+      <button>Join the Club!</button>
+    </section>
+
+    <section class="social-media">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 The Grand Book Club</p>
+  </footer>
+</body>
+</html>

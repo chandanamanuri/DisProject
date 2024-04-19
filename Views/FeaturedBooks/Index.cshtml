@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand Book Club - Membership</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("path/to/background-image.jpg"); /* Optional background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        header {
+            background-color: #2d545e; /* Night Blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+            header h1 {
+                font-size: 3em;
+                margin-bottom: 10px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+            }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #c89666; /* Light Yellow */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+            nav a {
+                color: #2d545e; /* Night Blue */
+                text-decoration: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+                nav a:hover {
+                    background-color: #c1a77a; /* Lighter Yellow */
+                    color: #fff;
+                }
+
+                nav a.active { /* Style for current page */
+                    background-color: #2d545e; /* Night Blue */
+                    color: #fff;
+                }
+
+        /* Membership Hero Section */
+        .membership-hero {
+            background-color: #def2f5; /* Light Green */
+            padding: 20px;
+            text-align: center;
+        }
+
+            .membership-hero h2 {
+                font-size: 2em;
+                margin-bottom: 15px;
+                color: #2d545e; /* Night Blue */
+            }
+
+            .membership-hero p {
+                font-size: 1.2em;
+                line-height: 1.5; /* Improve readability */
+            }
+
+            .membership-hero button {
+                background-color: #2d545e; /* Night Blue */
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                margin-top: 20px;
+            }
+
+                .membership-hero button:hover {
+                    background-color: #12343b; /* Night Blue Shadow */
+                }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 20px;
+            background-color: #c89666; /* Tan background */ /* Added tan background */
+        }
+
+            .benefits h3 {
+                text-align: center;
+                margin-bottom: 15px;
+                color: #2d545e; /* Night Blue */
+            }
+
+            .benefits ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .benefits li {
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                transition: background-color 0.3s;
+                padding: 10px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+                .benefits li:hover {
+                    background-color: #e8d0a5; /* Light Yellow Hover */
+                }
+
+                .benefits li i {
+                    color: #2d545e; /* Night Blue */
+                    margin-right: 10px;
+                    font-size: 1.2em;
+                }
+
+                .benefits li span {
+                    font-weight: bold;
+                }
+
+        /* Call to Action Section */
+        .cta {
+            text-align: center;
+            padding: 20px;
+        }
+
+            .cta button {
+                background-color: #2d545e; /* Night Blue */
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+                .cta button:hover {
+                    background-color: #12343b; /* Night Blue Shadow */
+                }
+
+        /* Footer */
+        footer {
+            background-color: #2d545e; /* Night Blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Grand Book Club</h1>
+    </header>
+
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="About" asp-action="Index">Overview</a>
+        <a asp-controller="FeaturedBooks" asp-action="Index">FeaturedBooks</a>
+        <a asp-controller="Membership" asp-action="Index" class="active">Membership</a>
+        <a asp-controller="SignUp" asp-action="Index">Sign up</a>
+    </nav>
+
+    <main>
+        <section class="membership-hero">
+            <h2>Unlock a World of Literary Connection</h2>
+            <p>Become a member of The Grand Book Club and gain exclusive access to a vibrant community of book lovers. Dive deeper into your passion for reading with these exciting benefits:</p>
+            <button>Join Now!</button>
+        </section>
+
+        <section class="benefits">
+            <h3>Membership Benefits</h3>
+            <ul>
+                <li>
+                    <i class="fa fa-check-circle"></i> <span>Curated Book Selections:</span> Receive personalized book recommendations based on your reading preferences.
+                </li>
+                <li>
+                    <i class="fa fa-users"></i> <span>Exclusive Book Discussions:</span> Participate in lively discussions with fellow members on the latest reads.
+                </li>
+                <li>
+                    <i class="fa fa-book-open"></i> <span>Early Access to Events:</span> Be the first to know about upcoming book club meetings and author events.
+                </li>
+                <li>
+                    <i class="fa fa-gift"></i> <span>Member Discounts:</span> Enjoy special discounts on books and bookish merchandise.
+                </li>
+                <li>
+                    <i class="fa fa-users-connected"></i> <span>Online Book Club Forum:</span> Connect with bookworms from around the world on our dedicated online forum.
+                </li>
+            </ul>
+        </section>
+
+        <section class="cta">
+            <button>Join the Club and Start Reading Today!</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 The Grand Book Club</p>
+    </footer>
+</body>
+</html>

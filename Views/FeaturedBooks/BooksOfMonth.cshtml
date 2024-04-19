@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books of the Month</title>
+    <style>
+        /* The flip box container */
+        .flip-box {
+            background-color: transparent;
+            width: 300px;
+            height: 500px;
+            border: 1px solid #f1f1f1;
+            perspective: 1000px;
+            margin-right: 20px;
+        }
+
+        /* This container is needed to position the front and back side */
+        .flip-box-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        /* Do an horizontal flip when you move the mouse over the flip box container */
+        .flip-box:hover .flip-box-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Position the front and back side */
+        .flip-box-front, .flip-box-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+        }
+
+        /* Style the front side (fallback if image is missing) */
+        .flip-box-front {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Style the back side */
+        .flip-box-back {
+            background-color: #ffddf4;
+            color: black;
+            transform: rotateY(180deg);
+        }
+
+        /* Additional styles for the whole page */
+        body {
+            padding: 20px;
+        }
+
+        h2 {
+            clear: both;
+        }
+
+        /* Added style to arrange weeks side by side */
+        .week-container {
+            overflow: hidden;
+        }
+
+        .week {
+            float: left;
+            width: 50%;
+        }
+
+        /* Additional styles for the whole page */
+        body {
+            padding: 20px;
+            text-align: center;
+            background-image: url('/img/rr.png'); /* Replace 'background.jpg' with the path to your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3 { /* Change the color of h1 and h2 */
+            color: #003366; /* Change the color to your desired color code */
+        }
+
+        h3 {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Books of the Month</h1>
+    <br>
+    <h2>Week 1</h2>
+    <br>
+    <br>
+    <div class="week-container">
+        <div class="week">
+            <h3>Book 1</h3>
+            <br>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="~/img/acotar.jpg" alt="acotar" style="width:300px;height:500px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h3>A Court of Thorns and Roses</h3>
+                        <p>Author:  Sarah J. Maas</p>
+                        <p>Genre: 	Romance, fantasy</p>
+                        <p>Brief: A Court of Thorns and Roses is a series by American author Sarah J. Maas, which follows the journey of Feyre Archeron after she is brought into the faerie lands of Prythian. The first book of the series, A Court of Thorns and Roses, was released in May 2015. The series centers on Feyre's adventures across Prythian and the faerie courts, following the epic love story and fierce struggle that ensues after she enters the fae lands.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week">
+            <h3>Book 2</h3>
+            <br>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="~/img/wao.jpg" alt="Book 2" style="width:300px;height:500px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h3>Wise and Otherwise</h3>
+                        <p>Author:  Sudha Murthy</p>
+                        <p>Genre: slice-of-life</p>
+                        <p>Brief: The book is crisp and loaded with simple snippets. She reveals to us the epiphanies in life when she gleams Experiences that shw that honesty is intrinsic, irrespective of cast, creed, age, or custom. The principle-centred Anthology culled from life is a veritable Chronology of experiences gained from her simple living, high thinking lifestyle. Her low profile lifestyle affords her often the raw Nature of human kind, devoid of sometics and trappings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <h2>Week 2</h2>
+    <br>
+    <div class="week-container">
+        <div class="week">
+            <h3>Book 1</h3>
+            <br>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="~/img/midnight.jpg" alt="Book 3" style="width:300px;height:500px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h3>The Midnight Library</h3>
+                        <p>Author: Matt Haig</p>
+                        <p>Genre:  Fantasy </p>
+                        <p>Brief: The novel follows a 35-year-old British woman unhappy in her dead-end life who is given the opportunity to experience lives she might have had if she had made different choices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week">
+            <h3>Book 2</h3>
+            <br>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="~/img/palace.jpg" alt="Book 4" style="width:300px;height:500px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h3>The Palace of Illusions</h3>
+                        <p>Author:  Chitra Banerjee Divakaruni</p>
+                        <p>Genre: Historical Fiction</p>
+                        <p>Brief: The novel is a rendition of the Hindu epic Mahabharata as told from Draupadi's (Panchaali's) viewpoint, namely, that of a woman living in a patriarchal world. Booklist summarizes the plot: "Smart, resilient, and courageous Panchaali, born of fire, marries all five of the famously heroic Pandava brothers, harbors a secret love, endures a long exile in the wilderness, instigates a catastrophic war, and slowly learns the truth about Krishna, her mysterious friend.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <h2>Week 3</h2>
+    <br>
+    <br>
+    <div class="week-container">
+        <div class="week">
+            <h3>Book 1</h3>
+            <br>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="~/img/i5.jpg" alt="Book 3" style="width:300px;height:500px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h3>The Song of Achilles</h3>
+                        <p>Author: Madeline Miller</p>
+                        <p> Genre:Romance,Fantasy</p>
+                        <p>Brief: Set during the Greek Heroic Age, it is a retelling of the Trojan War as told from the perspective of Patroclus. The novel follows Patroclus' relationship with Achilles, from their initial meeting to their exploits during the Trojan War, with focus on their romantic relationship. In 2012, The Song of Achilles was awarded the Orange Prize for Fiction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week">
+            <h3>Book 2</h3>
+            <br>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="~/img/i6.jpg" alt="Book 4" style="width:300px;height:500px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h3>Before the Coffee Gets Cold</h3>
+                        <p>Author: Toshikazu Kawaguchi</p>
+                        <p>Genre: novel</p>
+                        <p>Brief: It tells of a café in Tokyo that allows its customers to travel back in time, as long as they return before their coffee gets cold.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <h2>Week 4</h2>
+    <br>
+    <br>
+    <div class="week-container">
+        <div class="week">
+            <h3>Book 1</h3>
+            <br>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="~/img/i7.jpg" alt="Book 3" style="width:300px;height:500px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h3>Things We Never Got Over</h3>
+                        <p>Content Warning</p>
+                        <p>Author:  Lucy Score</p>
+                        <p>Genre: Fiction</p>
+                        <p>Brief: 30-something-year-old Naomi Witt falls under the spell of a wealthy bar owner, Knox Morgan, as she struggles to rediscover herself after ending an unhealthy relationship. Knox’s good looks, solitary lifestyle, and bad-boy attitude convince Naomi to give love another chance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week">
+            <h3>Book 2</h3>
+            <br>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img src="~/img/i8.jpg" alt="Book 4" style="width:300px;height:500px">
+                    </div>
+                    <div class="flip-box-back">
+                        <h3>Ikigai: The Japanese Secret to a Long and Happy Life</h3>
+                        <p>Author: Héctor García and Francesc Miralles</p>
+                        <p>Genre: Spirituality/Self Help</p>
+                        <p>Brief: The book teach you to apply the Japanese concept of ikigai, or life purpose, to your own life. Drawing on lessons from the people of Okinawa, who live longer than anybody else on earth, as well as on insights from art, science, and psychology, they show you how to find and follow your own ikigai and cultivate a happy, healthy lifestyle to sustain it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
