@@ -1,76 +1,130 @@
-﻿@* Sign up page *@
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Grand Book Club - Membership</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bookish Circle</title>
+  <style>
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 100vh; /* Set body height to 100% viewport height */
-            display: flex; /* Allow full-page background image */
-            background-image: url("path/to/book-background.jpg");
+            background-image: url("/img/nn.jpg"); /* Optional background image */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             background-attachment: fixed;
-            color: #fff; /* Change text color to white for better contrast */
         }
 
-            /* Gradient overlay for subtle background effect */
-            body::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
-            }
+    /* Header */
+    header {
+      background-color: #384b38;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      height: 75px; /* Set a fixed height */
+    }
 
-        /* main {
-            width: 100%; /* Span full width */
-            height: 100%; /* Span full height */
-            display: flex;
-            justify-content: center; /* Center form horizontally */
-            align-items: center; /* Center form vertically */
-        } */
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #fff;
+    }
 
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      background-color: #c89666;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      clear: both; /* Clear floats */
+    }
+
+      nav a {
+        color: #384b38;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        background-color: #c1a77a;
+        color: #fff;
+      }
+
+      nav a.active {
+        background-color: #384b38;
+        color: #fff;
+      }
+
+    /* Main content */
+    main {
+      padding: 20px; /* Add some padding */
+    }
+
+    /* Footer */
+    footer {
+      background-color: #384b38;
+      color: #fff;
+      padding: 5px;
+      text-align: center;
+      height: 50px; /* Set a fixed height */
+    }
+
+
+        /* Base styles for the form container */
         .signup-form {
-            width: 400px; /* Adjust width as needed */
-            background-color: #fff; /* Light background for form */
+            width: 1200px; /* Adjust width as needed */
+            background-color: #384b38; /* Light background for form */
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
             overflow: hidden; /* Prevent content overflow */
             position: relative; /* Allow for after element */
+            height: 500px;
         }
 
-            .signup-form h1 {
-                margin-bottom: 20px;
-                text-align: center;
-            }
+        /* Heading styles */
+        .signup-form h1 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffffff; /* White text color for headings */
+        }
 
-            .signup-form p {
-                margin-bottom: 20px;
-                text-align: center;
-                color: #999; /* Lighter text color */
-            }
+        /* Paragraph styles */
+        .signup-form p {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffffff; /* White text color for paragraphs */
+        }
 
+        /* Form group styles */
         .form-group {
             margin-bottom: 15px;
         }
 
+            /* Label styles */
             .form-group label {
                 display: block;
                 margin-bottom: 5px;
-                color: #333; /* Darker text color for labels */
+                color: #ffffff; /* White text color for labels */
+                font-size: 1em;
+                letter-spacing: 1px; /* Reduced letter spacing for labels */
             }
 
+            /* Input field styles */
             .form-group input {
                 display: block;
                 width: 100%;
@@ -79,26 +133,33 @@
                 border-radius: 3px;
                 box-sizing: border-box; /* Include padding in width calculation */
                 transition: border-color 0.3s;
+                background-color: #ffffff; /* White background color for input fields */
+                color: #384b38; /* Dark text color for input fields */
             }
 
+                /* Input field focus styles */
                 .form-group input:focus {
-                    border-color: #2d545e; /* Night Blue (on focus) */
+                    border-color: #384b38; /* Night Blue (on focus) */
                 }
 
+        /* Button styles */
         button[type="submit"] {
-            background-color: #2d545e; /* Night Blue */
-            color: #fff;
+            background-color: #c89666; /* Night Blue */
+            color: #384b38; /* Light brown text color for buttons */
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
+            font-weight : bold;
         }
 
+            /* Button hover styles */
             button[type="submit"]:hover {
-                background-color: #386372; /* Darker Night Blue (on hover) */
+                background-color: #c89666; 
             }
 
+        /* Background overlay */
         .signup-form::after {
             content: "";
             position: absolute;
@@ -110,102 +171,51 @@
             z-index: -1; /* Place behind form content */
         }
 
-       
-
-        /* Header */
-        header {
-            background-color: #2d545e; /* Night Blue */
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-            header h1 {
-                font-size: 3em;
-                margin-bottom: 10px;
-                letter-spacing: 3px;
-                text-transform: uppercase;
-            }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            background-color: #c89666; /* Light Yellow */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-            nav a {
-                color: #2d545e; /* Night Blue */
-                text-decoration: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                transition: background-color 0.3s, color 0.3s;
-            }
-
-                nav a:hover {
-                    background-color: #c1a77a; /* Lighter Yellow */
-                    color: #fff;
-                }
-
-                nav a.active { /* Style for current page */
-                    background-color: #2d545e; /* Night Blue */
-                    color: #fff;
-                }
-
-
-        /* Footer */
-        footer {
-            background-color: #2d545e; /* Night Blue */
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
+    /* Rest of your styles... */
+  </style>
 </head>
 <body>
-    <header>
-        <h1>The Grand Book Club</h1>
-    </header>
+  <header>
+    <h1>The Bookish Circle</h1>
+  </header>
 
-    <nav>
-        <a asp-controller="Home" asp-action="Index">Home</a>
-        <a asp-controller="About" asp-action="Index">Overview</a>
-        <a asp-controller="FeaturedBooks" asp-action="Index">FeaturedBooks</a>
-        <a asp-controller="Membership" asp-action="Index" class="active">Membership</a>
-        <a asp-controller="SignUp" asp-action="Index">Sign up</a>
-    </nav>
+  <nav>
+    <a asp-controller="Home" asp-action="Index">Home</a>
+    <a asp-controller="About" asp-action="Index">About Us</a>
+    <a asp-controller="FeaturedBooks" asp-action="Index">FeaturedBooks</a>
+    <a asp-controller="Membership" asp-action="Index">Membership</a>
+    <a asp-controller="SignUp" asp-action="Index" class="active">SignUp</a>
+  </nav>
 
-    <main>
-        <section class="signup-form">
-            <h1>Sign Up</h1>
-            <p>Join The Grand Book Club and embark on a literary adventure!</p>
+  <main>
+    <section class="signup-form">
+      <h2>Join The Bookish Circle and embark on a literary adventure!</h2>
 
-            <form action="signup.php" method="post">
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirm_password">Confirm Password:</label>
-                    <input type="password" id="confirm_password" name="confirm_password" required>
-                </div>
-                <button type="submit">Sign Up</button>
-            </form>
+      <form action="signup.
+      <form action="signup.php" method="post">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm_password">Confirm Password:</label>
+          <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 The Grand Book Club</p>
+        <p>&copy; 2024 The Bookish Circle</p>
     </footer>
 </body>
 </html>
