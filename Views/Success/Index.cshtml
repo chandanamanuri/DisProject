@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bookish Circle - Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("/img/nn.jpg"); /* Optional background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        header {
+            background-color: #384b38; /* Night Blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            color: #c89666;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            color: #ffff;
+            font-weight: bold;
+            background-color: #c89666;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #c89666; /* Light Yellow */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+            nav a {
+                color: #384b38; /* Night Blue */
+                text-decoration: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+                font-weight: bold
+            }
+
+                nav a:hover {
+                    background-color: #c1a77a; /* Lighter Yellow */
+                    color: #fff;
+                }
+
+                nav a.active { /* Style for current page */
+                    background-color: #384b38; /* Night Blue */
+                    color: #fff;
+                }
+
+        /* Footer */
+        footer {
+            background-color: #384b38; /* Night Blue */
+            color: #fff;
+            padding: 5px;
+            text-align: center;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <br />
+    <header>
+        <h1>The Bookish Circle</h1>
+    </header>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="About" asp-action="Index">About Us</a>
+        <a asp-controller="FeaturedBooks" asp-action="Index">Featured Books</a>
+        <a asp-controller="Membership" asp-action="Index">Membership</a>
+        <a asp-controller="Book Insights" asp-action="BookInsights">BookInsights</a>
+        <a asp-controller="SignUp" asp-action="Index">Sign up</a>
+    </nav>
+
+    <main>
+        
+        <h1> You've successfully signed up to our book club'</h1>
+       
+    </main>
+
+    <footer>
+        <p>&copy; 2024 The Bookish Circle</p>
+    </footer>
+</body>
+</html>
