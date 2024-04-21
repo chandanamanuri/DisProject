@@ -14,7 +14,7 @@
             background-repeat: no-repeat;
             background-position: center;
             background-attachment: fixed;
-            color: #333; /* Darker text for better contrast */
+            color: #384b38; /* Darker text for better contrast */
         }
     }
 
@@ -104,7 +104,7 @@
     /* About the Book Club */
     .about {
       background-color: #e1b382; /* Sand Tan */
-      color: #333; /* Darker text for contrast */
+            color: #384b38; /* Darker text for contrast */
       padding: 20px;
       border-radius: 10px;
       margin-bottom: 20px;
@@ -128,7 +128,7 @@
 
         .featured-book {
             background-color: #384b38;
-            color: #333;
+            color: #384b38;
             padding: 20px;
             border-radius: 10px;
             flex-basis: calc(50% - 20px); /* Adjusted width for each book */
@@ -173,7 +173,7 @@
     /* Upcoming Events Section Heading */
     .event {
       background-color: #e1b382; /* Sand Tan */
-      color: #333; /* Darker text for contrast */
+            color: #384b38; /* Darker text for contrast */
       padding: 20px;
       border-radius: 10px;
       margin-bottom: 20px;
@@ -193,7 +193,7 @@
       .cta button {
         padding: 15px 30px;
         font-size: 1.2em;
-        background-color: #2d545e; /* Night Blue */
+                background-color: #384b38; /* Night Blue */
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -202,7 +202,7 @@
       }
 
         .cta button:hover {
-          background-color: #12343b; /* Night Blue Shadow */
+                    background-color: #384b38; /* Night Blue Shadow */
         }
 
     /* Social Media Icons */
@@ -215,12 +215,12 @@
       .social-media a {
         margin: 0 10px;
         font-size: 1.5em;
-        color: #2d545e; /* Night Blue */
+                color: #384b38; /* Night Blue */
         transition: color 0.3s;
       }
 
         .social-media a:hover {
-          color: #12343b; /* Night Blue Shadow */
+                    color: #384b38; /* Night Blue Shadow */
         }
 
     
@@ -269,8 +269,16 @@
     </section>
 
     <section class="cta">
-      <button>Join the Club!</button>
+            <p><button onclick="goToPage2()">Join the club!</button></p>
+
+            <script>
+                function goToPage2() {
+                    window.location.href = "SignUp";
+                }
+            </script>
     </section>
+
+        
 
     <section class="social-media">
       <a href="#"><i class="fa fa-facebook"></i></a>
