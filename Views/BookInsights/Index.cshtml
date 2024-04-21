@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bookish Circle - American Bookworm Insights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("/img/background.jpg"); /* Optional background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333; /* Darker text for contrast */
+        }
+
+        /* Header */
+        header {
+            background-color: #384b38; /* Night Blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: #384b38;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #c89666; /* Light Yellow */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+            nav a {
+                color: #384b38; /* Night Blue */
+                text-decoration: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+                font-weight: bold;
+            }
+
+                nav a:hover {
+                    background-color: #c1a77a; /* Lighter Yellow */
+                    color: #fff;
+                }
+
+                nav a.active {
+                    background-color: #384b38; /* Night Blue */
+                    color: #fff;
+                }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+        }
+
+        /* American Bookworms Unite! Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+            .hero h2 {
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+
+            .hero img {
+                width: 50%;
+                margin-bottom: 20px;
+            }
+
+        /* Book Insights Section */
+        .insights {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .insight {
+            background-color: #e1b382; /* Sand Tan */
+            color: #333; /* Darker text for contrast */
+            padding: 20px;
+            border-radius: 10px;
+            width: calc(48% - 20px); /* Adjusted width for each insight */
+            max-width: calc(48% - 20px); /* Adjusted max-width for responsiveness */
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+            .insight h3 {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .insight p {
+                font-size: 1em;
+            }
+
+        /* Call to Action Section */
+        .cta {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .cta button {
+                padding: 15px 30px;
+                font-size: 1.2em;
+                background-color: #2d545e; /* Night Blue */
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+                .cta button:hover {
+                    background-color: #384b38; /* Darker Night Blue */
+                }
+
+        /* Discussion Section */
+        .discussion {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+            .discussion h3 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+
+        /* Footer */
+        footer {
+            background-color: #384b38;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+            footer a {
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                footer a:hover {
+                    color: #c1a77a; /* Lighter Yellow */
+                }
+
+        /* Social Media Icons (Optional) */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+            .social-icons a {
+                margin: 0 10px;
+            }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>The Bookish Circle</h1>
+    </header>
+
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="About" asp-action="Index">About Us</a>
+        <a asp-controller="FeaturedBooks" asp-action="Index">Featured Books</a>
+        <a asp-controller="Membership" asp-action="Index">Membership</a>
+        <a asp-controller="Book Insights" asp-action="Index">BookInsights</a>
+        <a asp-controller="SignUp" asp-action="Index">Sign up</a>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h2>American Bookworms Unite!</h2>
+            <img src="/img/bookworm.jpg" alt="Image of a bookworm">
+            <p>Intriguing Book Statistics Reveal What Americans are Reading</p>
+        </section>
+
+        <section class="insights">
+            <div class="insight">
+                <h3>Nation of Bookworms</h3>
+                <img src="/img/bookstack.jpg" alt="Image of a stack of books">
+                <p>The US takes the crown for reading the most, with a whopping 39% reporting over 20 books read in 2022!</p>
+            </div>
+
+            <div class="insight">
+                <h3>Planning to Read Even More</h3>
+                <img src="/img/future-reading.jpg" alt="Image of someone reading with a futuristic background">
+                <p>Good news! Americans are aiming to surpass their reading goals in 2023, with 61% planning to crack open more books than ever before.</p>
+            </div>
+
+            <div class="insight">
+                <h3>Favorite Genres</h3>
+                <img src="/img/genres.jpg" alt="Image of a bookshelf with different colored sections">
+                <p>History, mystery, and biography reign supreme, captivating 7% more American readers than the global average.</p>
+            </div>
+
+            <div class="insight">
+                <h3>Paperbacks and Kindles Rule</h3>
+                <img src="/img/paperback-kindle.jpg" alt="Image of a paperback book and a Kindle">
+                <p>While the digital age is upon us, Americans wciąż (vitch) cling to the comfort of paperbacks (34%) and adore their Kindles (29%). (That's "still" in Polish, for all the bookworm linguists out there!)</p>
+            </div>
+
+            <div class="insight">
+                <h3>The Right Length Matters, But Not Too Short</h3>
+                <img src="/img/book-length.jpg" alt="Image of a person holding a book and measuring it">
+                <p>Writers rejoice! The majority of readers (84%) find books to be just the perfect length, striking a happy medium between gripping narrative and concise storytelling.</p>
+            </div>
+
+            <div class="insight">
+                <h3>A Diverse Reading Age Range</h3>
+                <img src="/img/diverse-readers.jpg" alt="Image of a group of people of different ages reading">
+                <p>Contrary to some beliefs, readers come in all ages! The survey revealed a healthy spread across demographics, with a notable showing from those 5
+            </div>
+
+            <div class="insight">
+                <h3>Women Lead the Reading Charge</h3>
+                <img src="/img/women-reading.jpg" alt="Image of women reading">
+                <p>The survey found that 67% of American readers identify as women, solidifying the trend of women cherishing the written word.</p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h3>Let the Discussion Begin!</h3>
+            <p>What are your favorite genres? Do you prefer the feel of a physical book or the convenience of an eReader? Share your thoughts in the comments below!</p>
+            <button>Explore Our Book Collection</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 The Bookish Circle</p>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,15 +1,19 @@
-﻿<!DOCTYPE html>
+﻿@model DisProject.Models.SignUpModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Bookish Circle</title>
-  <style>
-    html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bookish Circle</title>
+    <style>
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
         body {
             font-family: Arial, sans-serif;
@@ -22,67 +26,66 @@
             background-attachment: fixed;
         }
 
-    /* Header */
-    header {
-      background-color: #384b38;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      height: 75px; /* Set a fixed height */
-    }
+        /* Header */
+        header {
+            background-color: #384b38;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            height: 75px; /* Set a fixed height */
+        }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: bold;
-      color: #fff;
-    }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #fff;
+        }
 
-    /* Navigation */
-    nav {
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-      background-color: #c89666;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      clear: both; /* Clear floats */
-    }
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #c89666;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            clear: both; /* Clear floats */
+        }
 
-      nav a {
-        color: #384b38;
-        text-decoration: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s;
-        font-weight: bold;
-      }
+            nav a {
+                color: #384b38;
+                text-decoration: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+                font-weight: bold;
+            }
 
-      nav a:hover {
-        background-color: #c1a77a;
-        color: #fff;
-      }
+                nav a:hover {
+                    background-color: #c1a77a;
+                    color: #fff;
+                }
 
-      nav a.active {
-        background-color: #384b38;
-        color: #fff;
-      }
+                nav a.active {
+                    background-color: #384b38;
+                    color: #fff;
+                }
 
-    /* Main content */
-    main {
-      padding: 20px; /* Add some padding */
-    }
+        /* Main content */
+        main {
+            padding: 20px; /* Add some padding */
+        }
 
-    /* Footer */
-    footer {
-      background-color: #384b38;
-      color: #fff;
-      padding: 5px;
-      text-align: center;
-      height: 50px; /* Set a fixed height */
-    }
-
+        /* Footer */
+        footer {
+            background-color: #384b38;
+            color: #fff;
+            padding: 5px;
+            text-align: center;
+            height: 50px; /* Set a fixed height */
+        }
 
         /* Base styles for the form container */
         .signup-form {
@@ -96,19 +99,19 @@
             height: 500px;
         }
 
-        /* Heading styles */
-        .signup-form h1 {
-            margin-bottom: 20px;
-            text-align: center;
-            color: #ffffff; /* White text color for headings */
-        }
+            /* Heading styles */
+            .signup-form h2 {
+                margin-bottom: 20px;
+                text-align: center;
+                color: #ffffff; /* White text color for headings */
+            }
 
-        /* Paragraph styles */
-        .signup-form p {
-            margin-bottom: 20px;
-            text-align: center;
-            color: #ffffff; /* White text color for paragraphs */
-        }
+            /* Paragraph styles */
+            .signup-form p {
+                margin-bottom: 20px;
+                text-align: center;
+                color: #ffffff; /* White text color for paragraphs */
+            }
 
         /* Form group styles */
         .form-group {
@@ -151,12 +154,12 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-weight : bold;
+            font-weight: bold;
         }
 
             /* Button hover styles */
             button[type="submit"]:hover {
-                background-color: #c89666; 
+                background-color: #c89666;
             }
 
         /* Background overlay */
@@ -171,46 +174,51 @@
             z-index: -1; /* Place behind form content */
         }
 
-    /* Rest of your styles... */
-  </style>
+        /* Rest of your styles... */
+    </style>
 </head>
 <body>
-  <header>
-    <h1>The Bookish Circle</h1>
-  </header>
+    <header>
+        <h1>The Bookish Circle</h1>
+    </header>
 
-  <nav>
-    <a asp-controller="Home" asp-action="Index">Home</a>
-    <a asp-controller="About" asp-action="Index">About Us</a>
-    <a asp-controller="FeaturedBooks" asp-action="Index">FeaturedBooks</a>
-    <a asp-controller="Membership" asp-action="Index">Membership</a>
-    <a asp-controller="SignUp" asp-action="Index" class="active">SignUp</a>
-  </nav>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="About" asp-action="Index">About Us</a>
+        <a asp-controller="FeaturedBooks" asp-action="Index">Featured Books</a>
+        <a asp-controller="Membership" asp-action="Index">Membership</a>
+        <a asp-controller="BookInsights" asp-action="BookInsights">BookInsights</a>
+        <a asp-controller="SignUp" asp-action="Index">Sign up</a>
+    </nav>
 
-  <main>
-    <section class="signup-form">
-      <h2>Join The Bookish Circle and embark on a literary adventure!</h2>
+    <main>
+        <section class="signup-form">
+            <h2>Join The Bookish Circle and embark on a literary adventure!</h2>
 
-      <form action="signup.
-      <form action="signup.php" method="post">
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-          <label for="confirm_password">Confirm Password:</label>
-          <input type="password" id="confirm_password" name="confirm_password" required>
-        </div>
-        <button type="submit">Sign Up</button>
-      </form>
+            <!-- Use ASP.NET MVC Tag Helpers to bind to the model -->
+            <form asp-controller="SignUp" asp-action="Create" method="post">
+                <div class="form-group">
+                    <label asp-for="Username">Username:</label>
+                    <input asp-for="Username" class="form-control" required />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Email:</label>
+                    <input asp-for="Email" class="form-control" required />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password">Password:</label>
+                    <input asp-for="Password" class="form-control" type="password" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword">Confirm Password:</label>
+                    <input asp-for="ConfirmPassword" class="form-control" type="password" required />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
         </section>
     </main>
 
