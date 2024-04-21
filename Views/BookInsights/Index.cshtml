@@ -1,29 +1,51 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bookish Circle - American Bookworm Insights</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Genre Distribution</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>The Bookish Circle</title>
     <style>
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("/img/background.jpg"); /* Optional background image */
+            background-image: url("/img/nn.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             background-attachment: fixed;
-            color: #333; /* Darker text for contrast */
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0; /* Adjust vertical padding as needed */
+        }
+
+        /* Apply max-width to the image */
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* Header */
         header {
-            background-color: #384b38; /* Night Blue */
+            background-color: #384b38;
             color: #fff;
             padding: 20px;
             text-align: center;
+            height: 75px;
         }
 
         h1 {
@@ -32,10 +54,22 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: bold;
-            background-color: #384b38;
             color: #fff;
-            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            color: #fff;
             text-align: center;
+        }
+
+        canvas {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #384b38;
         }
 
         /* Navigation */
@@ -43,12 +77,13 @@
             display: flex;
             justify-content: space-around;
             padding: 10px 0;
-            background-color: #c89666; /* Light Yellow */
+            background-color: #c89666;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            clear: both;
         }
 
             nav a {
-                color: #384b38; /* Night Blue */
+                color: #384b38;
                 text-decoration: none;
                 padding: 10px 20px;
                 border-radius: 5px;
@@ -57,130 +92,56 @@
             }
 
                 nav a:hover {
-                    background-color: #c1a77a; /* Lighter Yellow */
+                    background-color: #c1a77a;
                     color: #fff;
                 }
 
                 nav a.active {
-                    background-color: #384b38; /* Night Blue */
+                    background-color: #384b38;
                     color: #fff;
                 }
 
-        /* Main Content */
+        /* Main content */
         main {
             padding: 20px;
         }
-
-        /* American Bookworms Unite! Section */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-            .hero h2 {
-                font-size: 2em;
-                margin-bottom: 10px;
-            }
-
-            .hero img {
-                width: 50%;
-                margin-bottom: 20px;
-            }
-
-        /* Book Insights Section */
-        .insights {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .insight {
-            background-color: #e1b382; /* Sand Tan */
-            color: #333; /* Darker text for contrast */
-            padding: 20px;
-            border-radius: 10px;
-            width: calc(48% - 20px); /* Adjusted width for each insight */
-            max-width: calc(48% - 20px); /* Adjusted max-width for responsiveness */
-            box-sizing: border-box;
-            margin-bottom: 20px;
-        }
-
-            .insight h3 {
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
-
-            .insight p {
-                font-size: 1em;
-            }
-
-        /* Call to Action Section */
-        .cta {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-            .cta button {
-                padding: 15px 30px;
-                font-size: 1.2em;
-                background-color: #2d545e; /* Night Blue */
-                color: #fff;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-
-                .cta button:hover {
-                    background-color: #384b38; /* Darker Night Blue */
-                }
-
-        /* Discussion Section */
-        .discussion {
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-
-            .discussion h3 {
-                font-size: 1.5em;
-                margin-bottom: 10px;
-            }
 
         /* Footer */
         footer {
             background-color: #384b38;
             color: #fff;
-            padding: 20px;
+            padding: 5px;
             text-align: center;
+            height: 50px;
         }
 
-            footer a {
-                color: #fff;
-                text-decoration: none;
-                transition: color 0.3s;
-            }
-
-                footer a:hover {
-                    color: #c1a77a; /* Lighter Yellow */
-                }
-
-        /* Social Media Icons (Optional) */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-            .social-icons a {
-                margin: 0 10px;
-            }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
 
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: left;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #ddd;
+        }
     </style>
 </head>
-
 <body>
     <header>
         <h1>The Bookish Circle</h1>
@@ -191,80 +152,159 @@
         <a asp-controller="About" asp-action="Index">About Us</a>
         <a asp-controller="FeaturedBooks" asp-action="Index">Featured Books</a>
         <a asp-controller="Membership" asp-action="Index">Membership</a>
-        <a asp-controller="Book Insights" asp-action="Index">BookInsights</a>
         <a asp-controller="SignUp" asp-action="Index">Sign up</a>
+        <a asp-controller="BookInsights" asp-action="Index">BookInsights</a>
     </nav>
 
     <main>
-        <section class="hero">
-            <h2>American Bookworms Unite!</h2>
-            <img src="/img/bookworm.jpg" alt="Image of a bookworm">
-            <p>Intriguing Book Statistics Reveal What Americans are Reading</p>
-        </section>
-
-        <section class="insights">
-            <div class="insight">
-                <h3>Nation of Bookworms</h3>
-                <img src="/img/bookstack.jpg" alt="Image of a stack of books">
-                <p>The US takes the crown for reading the most, with a whopping 39% reporting over 20 books read in 2022!</p>
-            </div>
-
-            <div class="insight">
-                <h3>Planning to Read Even More</h3>
-                <img src="/img/future-reading.jpg" alt="Image of someone reading with a futuristic background">
-                <p>Good news! Americans are aiming to surpass their reading goals in 2023, with 61% planning to crack open more books than ever before.</p>
-            </div>
-
-            <div class="insight">
-                <h3>Favorite Genres</h3>
-                <img src="/img/genres.jpg" alt="Image of a bookshelf with different colored sections">
-                <p>History, mystery, and biography reign supreme, captivating 7% more American readers than the global average.</p>
-            </div>
-
-            <div class="insight">
-                <h3>Paperbacks and Kindles Rule</h3>
-                <img src="/img/paperback-kindle.jpg" alt="Image of a paperback book and a Kindle">
-                <p>While the digital age is upon us, Americans wciąż (vitch) cling to the comfort of paperbacks (34%) and adore their Kindles (29%). (That's "still" in Polish, for all the bookworm linguists out there!)</p>
-            </div>
-
-            <div class="insight">
-                <h3>The Right Length Matters, But Not Too Short</h3>
-                <img src="/img/book-length.jpg" alt="Image of a person holding a book and measuring it">
-                <p>Writers rejoice! The majority of readers (84%) find books to be just the perfect length, striking a happy medium between gripping narrative and concise storytelling.</p>
-            </div>
-
-            <div class="insight">
-                <h3>A Diverse Reading Age Range</h3>
-                <img src="/img/diverse-readers.jpg" alt="Image of a group of people of different ages reading">
-                <p>Contrary to some beliefs, readers come in all ages! The survey revealed a healthy spread across demographics, with a notable showing from those 5
-            </div>
-
-            <div class="insight">
-                <h3>Women Lead the Reading Charge</h3>
-                <img src="/img/women-reading.jpg" alt="Image of women reading">
-                <p>The survey found that 67% of American readers identify as women, solidifying the trend of women cherishing the written word.</p>
-            </div>
-        </section>
-
-        <section class="cta">
-            <h3>Let the Discussion Begin!</h3>
-            <p>What are your favorite genres? Do you prefer the feel of a physical book or the convenience of an eReader? Share your thoughts in the comments below!</p>
-            <button>Explore Our Book Collection</button>
-        </section>
+        <h2>Chart Data</h2>
+        <!-- Canvas element to render the chart -->
+        <div class="center">
+        <img src="/img/chart.jpeg" alt="Description of the image" width="500" height="300">
+        </div>
+        <h2>Top 10 Young Adult Books</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Title</th>
+                    <th>Series</th>
+                    <th>Number of Series</th>
+                    <th>Author</th>
+                    <th>Genres</th>
+                    <th>Publisher</th>
+                    <th>Published Year</th>
+                    <th>First Publish Year</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>The Hunger Games (The Hunger Games, #1)</td>
+                    <td>The Hunger Games</td>
+                    <td>#1</td>
+                    <td>Suzanne Collins</td>
+                    <td>Young Adult, Fiction, Dystopia, Fantasy, Science Fiction, Romance, Adventure, Teen, Post Apocalyptic, Action</td>
+                    <td>Scholastic Press</td>
+                    <td>2008</td>
+                    <td>2008</td>
+                    <td>4.33</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>The Diary of a Young Girl</td>
+                    <td></td>
+                    <td></td>
+                    <td>Anne Frank</td>
+                    <td>Nonfiction, Classics, History, Biography, Memoir, Historical, Holocaust, Autobiography, War, World War II</td>
+                    <td>Bantam</td>
+                    <td>1993</td>
+                    <td>1947</td>
+                    <td>4.15</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Little Women</td>
+                    <td>Little Women</td>
+                    <td>#1</td>
+                    <td>Louisa May Alcott</td>
+                    <td>Classics, Fiction, Historical Fiction, Young Adult, Romance, Historical, Literature, Childrens, Classic Literature, Novels</td>
+                    <td>Signet Classics</td>
+                    <td>2004</td>
+                    <td>1880</td>
+                    <td>4.09</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>The Fault in Our Stars</td>
+                    <td></td>
+                    <td></td>
+                    <td>John Green</td>
+                    <td>Young Adult, Romance, Fiction, Contemporary, Realistic Fiction, Teen, Coming Of Age, Drama, Novels, Love</td>
+                    <td>Dutton Books</td>
+                    <td>2012</td>
+                    <td>2012</td>
+                    <td>4.21</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Anne of Green Gables</td>
+                    <td>Anne of Green Gables</td>
+                    <td>#1</td>
+                    <td>L.M. Montgomery</td>
+                    <td>Classics, Fiction, Young Adult, Childrens, Historical Fiction, Middle Grade, Historical, Audiobook, Canada, Coming Of Age</td>
+                    <td>Signet Book</td>
+                    <td>2003</td>
+                    <td>1908</td>
+                    <td>4.26</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>The Lightning Thief</td>
+                    <td>Percy Jackson and the Olympians</td>
+                    <td>#1</td>
+                    <td>Rick Riordan</td>
+                    <td>Fantasy, Young Adult, Mythology, Fiction, Middle Grade, Adventure, Childrens, Urban Fantasy, Greek Mythology, Magic</td>
+                    <td>Disney Hyperion Books</td>
+                    <td>2006</td>
+                    <td>2005</td>
+                    <td>4.26</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>The Giver</td>
+                    <td>The Giver</td>
+                    <td>#1</td>
+                    <td>Lois Lowry</td>
+                    <td>Young Adult, Fiction, Classics, Dystopia, Science Fiction, Fantasy, School, Childrens, Middle Grade, Read For School</td>
+                    <td>Ember</td>
+                    <td>2006</td>
+                    <td>1993</td>
+                    <td>4.13</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>City of Bones</td>
+                    <td>The Mortal Instruments</td>
+                    <td>#1</td>
+                    <td>Cassandra Clare</td>
+                    <td>Fantasy, Young Adult, Paranormal, Romance, Urban Fantasy, Fiction, Vampires, Supernatural, Angels, Magic</td>
+                    <td>Margaret K. McElderry Books</td>
+                    <td>2007</td>
+                    <td>2007</td>
+                    <td>4.1</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>The Perks of Being a Wallflower</td>
+                    <td></td>
+                    <td></td>
+                    <td>Stephen Chbosky</td>
+                    <td>Young Adult, Fiction, Contemporary, Coming Of Age, Romance, Realistic Fiction, LGBT, Classics, Mental Health, Teen</td>
+                    <td>MTV Books/Pocket Books</td>
+                    <td>1999</td>
+                    <td>1999</td>
+                    <td>4.2</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>A Wrinkle in Time</td>
+                    <td>Time Quintet</td>
+                    <td>#1</td>
+                    <td>Madeleine L'Engle</td>
+                    <td>Fantasy, Fiction, Classics, Young Adult, Science Fiction, Childrens, Middle Grade, Time Travel, Adventure, Science Fiction Fantasy</td>
+                    <td>Square Fish</td>
+                    <td>1973</td>
+                    <td>1962</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
 
     <footer>
         <p>&copy; 2024 The Bookish Circle</p>
-        <a href="#">Contact Us</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
     </footer>
 </body>
-
 </html>

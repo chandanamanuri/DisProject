@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
     <title>The Bookish Circle </title>
     <style>
         /* The flip box container */
-        
+
         .flip-box {
             background-color: transparent;
             width: 300px;
@@ -54,7 +55,7 @@
         }
 
         /* Added style to arrange weeks side by side */
-        
+
         .week-container {
             display: flex; /* Enable flexbox layout */
             justify-content: center; /* Center flip boxes horizontally */
@@ -87,21 +88,21 @@
             text-align: center;
         }
 
-             h1 {
-                font-size: 3em;
-                margin-bottom: 10px;
-                letter-spacing: 3px;
-                text-transform: uppercase;
-                font-weight: bold ;
-            }
-
-             h2 {
-                font-size: 2em;
-                margin-bottom: 10px;
-                letter-spacing: 3px;
-                color: #c89666;
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             font-weight: bold;
-            }
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            color: #c89666;
+            font-weight: bold;
+        }
 
         h3 {
             font-size: 2em;
@@ -118,7 +119,6 @@
             padding: 10px 0;
             background-color: #c89666; /* Light Yellow */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
         }
 
             nav a {
@@ -142,23 +142,23 @@
 
         /* Call to Action Section */
         /* .cta {
-            text-align: center;
-            padding: 20px;
-        }
+                    text-align: center;
+                    padding: 20px;
+                }
 
-            .cta button {
-                background-color: #2d545e; 
-                color: #fff;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
+                    .cta button {
+                        background-color: #2d545e;
+                        color: #fff;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: background-color 0.3s;
+                    }
 
-                .cta button:hover {
-                    background-color: #12343b;
-                } */
+                        .cta button:hover {
+                            background-color: #12343b;
+                        } */
 
 
 
@@ -179,10 +179,11 @@
     </header>
     <nav>
         <a asp-controller="Home" asp-action="Index">Home</a>
-        <a asp-controller="About" asp-action="Index" >About Us</a>
-        <a asp-controller="FeaturedBooks" asp-action="Index" class="active">FeaturedBooks</a>
+        <a asp-controller="About" asp-action="Index">About Us</a>
+        <a asp-controller="FeaturedBooks" asp-action="Index">Featured Books</a>
         <a asp-controller="Membership" asp-action="Index">Membership</a>
-        <a asp-controller="SignUp" asp-action="Index">SignUp</a>
+        <a asp-controller="SignUp" asp-action="Index">Sign up</a>
+        <a asp-controller="BookInsights" asp-action="Index">BookInsights</a>
     </nav>
     <br>
     <br>
@@ -210,13 +211,13 @@
                             }
                         </script>
 
-                   </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="week">
-           
+
             <br>
             <div class="flip-box">
                 <div class="flip-box-inner">
@@ -246,7 +247,7 @@
     <br>
     <div class="week-container">
         <div class="week">
-        
+
             <br>
             <div class="flip-box">
                 <div class="flip-box-inner">
@@ -271,7 +272,7 @@
         </div>
 
         <div class="week">
-            
+
             <br>
             <div class="flip-box">
                 <div class="flip-box-inner">
@@ -302,7 +303,7 @@
     <br>
     <div class="week-container">
         <div class="week">
-        
+
             <br>
             <div class="flip-box">
                 <div class="flip-box-inner">
@@ -327,7 +328,7 @@
         </div>
 
         <div class="week">
-       
+
             <br>
             <div class="flip-box">
                 <div class="flip-box-inner">
@@ -358,7 +359,7 @@
     <br>
     <div class="week-container">
         <div class="week">
-            
+
             <br>
             <div class="flip-box">
                 <div class="flip-box-inner">
@@ -384,7 +385,7 @@
         </div>
 
         <div class="week">
-           
+
             <br>
             <div class="flip-box">
                 <div class="flip-box-inner">
@@ -400,7 +401,7 @@
 
                         <script>
                             function goToPage2() {
-                                window.location.href = "Review";
+                                window.location.href = "/Review/Index";
                             }
                         </script>
                     </div>
@@ -409,7 +410,7 @@
         </div>
     </div>
 
-    <section class="cta">
+    @* <section class="cta">
         <p><button onclick="goToPage2()">Join the club!</button></p>
 
         <script>
@@ -417,7 +418,7 @@
                 window.location.href = "SignUp";
             }
         </script>
-    </section>
+    </section> *@
 
 </body>
 </html>

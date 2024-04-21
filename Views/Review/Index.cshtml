@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bookish Circle</title>
     <style>
-        html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
+        /* Header, navigation, and footer styles */
+        /* Your existing CSS styles for header, navigation, and footer */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -24,11 +20,10 @@
 
         /* Header */
         header {
-            background-color: #384b38;
+            background-color: #384b38; /* Night Blue */
             color: #fff;
             padding: 20px;
             text-align: center;
-            height: 75px; /* Set a fixed height */
         }
 
         h1 {
@@ -37,7 +32,22 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: bold;
-            color: #fff;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            color: #c89666;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            color: #ffff;
+            font-weight: bold;
         }
 
         /* Navigation */
@@ -45,107 +55,89 @@
             display: flex;
             justify-content: space-around;
             padding: 10px 0;
-            background-color: #c89666;
+            background-color: #c89666; /* Light Yellow */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            clear: both; /* Clear floats */
         }
 
             nav a {
-                color: #384b38;
+                color: #384b38; /* Night Blue */
                 text-decoration: none;
                 padding: 10px 20px;
                 border-radius: 5px;
                 transition: background-color 0.3s, color 0.3s;
-                font-weight: bold;
+                font-weight: bold
             }
 
                 nav a:hover {
-                    background-color: #c1a77a;
+                    background-color: #c1a77a; /* Lighter Yellow */
                     color: #fff;
                 }
 
-                nav a.active {
-                    background-color: #384b38;
+                nav a.active { /* Style for current page */
+                    background-color: #384b38; /* Night Blue */
                     color: #fff;
                 }
 
-        /* Main content */
-        main {
-            padding: 20px; /* Add some padding */
-        }
+
+
+
 
         /* Footer */
         footer {
-            background-color: #384b38;
+            background-color: #384b38; /* Night Blue */
             color: #fff;
             padding: 5px;
             text-align: center;
-            height: 50px; /* Set a fixed height */
         }
-
-
-        /* Base styles for the form container */
+        /* Form and review table styles */
         .signup-form {
-            width: 1200px; /* Adjust width as needed */
-            background-color: #384b38; /* Light background for form */
+            width: 80%;
+            margin: 0 auto;
+            background-color: #ffffff; /* Light background for form */
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
             overflow: hidden; /* Prevent content overflow */
             position: relative; /* Allow for after element */
-            height: 500px;
         }
 
-            /* Heading styles */
-            .signup-form h1 {
+            .signup-form h2 {
                 margin-bottom: 20px;
                 text-align: center;
-                color: #ffffff; /* White text color for headings */
+                color: #384b38; /* Dark text color for headings */
             }
 
-            /* Paragraph styles */
-            .signup-form p {
-                margin-bottom: 20px;
-                text-align: center;
-                color: #ffffff; /* White text color for paragraphs */
-            }
-
-        /* Form group styles */
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-            /* Label styles */
             .form-group label {
                 display: block;
                 margin-bottom: 5px;
-                color: #ffffff; /* White text color for labels */
+                color: #384b38; /* Dark text color for labels */
                 font-size: 1em;
                 letter-spacing: 1px; /* Reduced letter spacing for labels */
             }
 
-            /* Input field styles */
-            .form-group input {
+            .form-group input,
+            .form-group textarea {
                 display: block;
                 width: 100%;
                 padding: 10px;
-                border: 1px solid #ccc;
+                border: 1px solid #384b38;
                 border-radius: 3px;
                 box-sizing: border-box; /* Include padding in width calculation */
                 transition: border-color 0.3s;
-                background-color: #ffffff; /* White background color for input fields */
-                color: #384b38; /* Dark text color for input fields */
             }
 
-                /* Input field focus styles */
-                .form-group input:focus {
-                    border-color: #384b38; /* Night Blue (on focus) */
+                .form-group input:focus,
+                .form-group textarea:focus {
+                    border-color: #384b38; /* Dark text color for labels */
                 }
 
-        /* Button styles */
-        button[type="submit"] {
-            background-color: #c89666; /* Night Blue */
-            color: #384b38; /* Light brown text color for buttons */
+        button[type="button"] {
+            background-color: #c89666; /* Light brown */
+            color: #384b38; /* Dark text color for buttons */
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -154,26 +146,27 @@
             font-weight: bold;
         }
 
-            /* Button hover styles */
-            button[type="submit"]:hover {
-                background-color: #c89666;
+            button[type="button"]:hover {
+                background-color: #c1a77a; /* Brown */
             }
 
-        /* Background overlay */
-        .signup-form::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
+        #reviewsTable {
             width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.1); /* White overlay (subtle) */
-            z-index: -1; /* Place behind form content */
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-          
-        
-        
+            #reviewsTable th,
+            #reviewsTable td {
+                border: 1px solid #384b38; /* Dark text color for labels */
+                padding: 8px;
+                text-align: left;
+            }
+
+            #reviewsTable th {
+                background-color: #c89666; /* Light brown */
+                color: #384b38; /* Dark text color for headings */
+            }
     </style>
 </head>
 <body>
@@ -184,40 +177,133 @@
     <nav>
         <a asp-controller="Home" asp-action="Index">Home</a>
         <a asp-controller="About" asp-action="Index">About Us</a>
-        <a asp-controller="FeaturedBooks" asp-action="Index">FeaturedBooks</a>
+        <a asp-controller="FeaturedBooks" asp-action="Index">Featured Books</a>
         <a asp-controller="Membership" asp-action="Index">Membership</a>
-        <a asp-controller="SignUp" asp-action="Index">SignUp</a>
+        <a asp-controller="SignUp" asp-action="Index">Sign up</a>
+        <a asp-controller="BookInsights" asp-action="Index">BookInsights</a>
     </nav>
 
     <main>
         <section class="signup-form">
             <h2>Add a review embark on a literary adventure!</h2>
 
-            <form action="signup.
-      <form action="signup.php" method="post">
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-          <label for="booktitle">Book Title:</label>
-          <input type="text" id="booktitle" name="booktitle" required>
-        </div>
-        <div class="form-group">
-          <label for="review">Review:</label>
-          <input type="text" id="Review" name="Review" required>
-        </div>
-        
-        <button type="submit">Submit</button>
-      </form>
-        </section>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="booktitle">Book Title:</label>
+                    <input type="text" id="booktitle" name="booktitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewText">Review:</label>
+                    <textarea id="reviewText" name="reviewText" required></textarea>
+                </div>
+                <button type="button" onclick="addReview()">Add Review</button>
+                <p><button onclick="goToPage223()">Submit</button></p>
 
+                <script>
+                    function goToPage223() {
+                        window.location.href = "SuccessRegistration"; 
+                    }
+                </script>
+            </form>
+
+            <table id="reviewsTable">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Book Title</th>
+                        <th>Review</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Reviews will be added dynamically here -->
+                </tbody>
+            </table>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2024 The Bookish Circle</p>
     </footer>
 
+    <script>
+        // Function to add a review
+        function addReview() {
+            // Get form data
+            const username = document.getElementById("username").value;
+            const booktitle = document.getElementById("booktitle").value;
+            const reviewText = document.getElementById("reviewText").value;
 
+            // Validate form data
+            if (!username || !booktitle || !reviewText) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Create a new row for the table
+            const table = document.getElementById("reviewsTable");
+            const newRow = table.insertRow();
+
+            // Add cells for username, book title, review text, edit, and delete buttons
+            const usernameCell = newRow.insertCell();
+            const booktitleCell = newRow.insertCell();
+            const reviewTextCell = newRow.insertCell();
+            const editCell = newRow.insertCell();
+            const deleteCell = newRow.insertCell();
+
+            usernameCell.textContent = username;
+            booktitleCell.textContent = booktitle;
+            reviewTextCell.textContent = reviewText;
+
+            // Add edit and delete buttons with event listeners
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.addEventListener("click", function () {
+                // Call editReview function passing the row index
+                editReview(newRow.rowIndex);
+            });
+            editCell.appendChild(editButton);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.addEventListener("click", function () {
+                // Call deleteReview function passing the row index
+                deleteReview(newRow.rowIndex);
+            });
+            deleteCell.appendChild(deleteButton);
+
+            // Clear form fields
+            document.getElementById("username").value = "";
+            document.getElementById("booktitle").value = "";
+            document.getElementById("reviewText").value = "";
+        }
+
+        // Function to edit a review
+        function editReview(rowIndex) {
+            // Retrieve row data
+            const table = document.getElementById("reviewsTable");
+            const row = table.rows[rowIndex];
+
+            // Populate form fields with row data
+            document.getElementById("username").value = row.cells[0].textContent;
+            document.getElementById("booktitle").value = row.cells[1].textContent;
+            document.getElementById("reviewText").value = row.cells[2].textContent;
+
+            // Remove the row from the table
+            table.deleteRow(rowIndex);
+        }
+
+        // Function to delete a review
+        function deleteReview(rowIndex) {
+            // Remove the row from the table
+            document.getElementById("reviewsTable").deleteRow(rowIndex);
+        }
+    </script>
+    </script>
 </body>
 </html>

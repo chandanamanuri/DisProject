@@ -2,14 +2,11 @@
 
 namespace DisProject.Models
 {
-    public class Review
+    public class ReviewModel
     {
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Author is required")]
-        public string Author { get; set; }
-
-        [Required(ErrorMessage = "Content is required")]
-        public string Content { get; set; }
+        public string Username { get; set; }
+        public string BookTitle { get; set; }
+        public string ReviewText { get; set; }
     }
 }
