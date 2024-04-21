@@ -2,7 +2,7 @@
 namespace DisProject.Models
 {
 
-public class SignUpModel
+    public class SignUpModel
     {
         public int Id { get; set; }
 
