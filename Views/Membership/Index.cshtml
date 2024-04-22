@@ -98,7 +98,7 @@
             .membership-hero h2 {
                 font-size: 2em;
                 margin-bottom: 15px;
-                color: #2d545e; /* Night Blue */
+                color: #384b38; /* Night Blue */
             }
 
             .membership-hero p {
@@ -107,7 +107,7 @@
             }
 
             .membership-hero button {
-                background-color: #2d545e; /* Night Blue */
+                background-color: #384b38; /* Night Blue */
                 color: #fff;
                 padding: 10px 20px;
                 border: none;
@@ -118,7 +118,7 @@
             }
 
                 .membership-hero button:hover {
-                    background-color: #12343b; /* Night Blue Shadow */
+                    background-color: #384b38; /* Night Blue Shadow */
                 }
 
         /* Benefits Section */
@@ -170,7 +170,7 @@
         }
 
             .cta button {
-                background-color: #2d545e; /* Night Blue */
+                background-color: #384b38; /* Night Blue */
                 color: #fff;
                 padding: 10px 20px;
                 border: none;
@@ -203,7 +203,13 @@
         <section class="membership-hero">
             <h2>Unlock a World of Literary Connection</h2>
             <p>Become a member of The Bookish Circle and gain exclusive access to a vibrant community of book lovers. Dive deeper into your passion for reading with these exciting benefits:</p>
-            <button>Join Now!</button>
+            <p><button onclick="goToPage2()">Join Now!</button></p>
+
+            <script>
+                function goToPage2() {
+                    window.location.href = "SignUp";
+                }
+            </script>
         </section>
 
         <section class="benefits">
