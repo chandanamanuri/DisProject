@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,25 +28,23 @@
         }
 
         .chart-container canvas {
-            max-width: 50%; /* Adjust the maximum width as needed */
+            max-width: 50%;
             height: auto;
         }
-
 
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("/img/nn.jpg"); /* Optional background image */
+            background-image: url("/img/nn.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             background-attachment: fixed;
         }
 
-        /* Header */
         header {
-            background-color: #384b38; /* Night Blue */
+            background-color: #384b38;
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -55,10 +54,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 0; /* Adjust vertical padding as needed */
+            padding: 20px 0;
         }
 
-        /* Apply max-width to the image */
         img {
             max-width: 150%;
             height: auto;
@@ -74,7 +72,7 @@
 
         h2 {
             font-size: 2em;
-            margin-bottom: 10px; /* Adjust the margin-bottom to decrease the gap */
+            margin-bottom: 10px;
             letter-spacing: 3px;
             color: #c89666;
             font-weight: bold;
@@ -89,45 +87,42 @@
             background-color: #384b38;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-around;
             padding: 10px 0;
-            background-color: #c89666; /* Light Yellow */
+            background-color: #c89666;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
             nav a {
-                color: #384b38; /* Night Blue */
+                color: #384b38;
                 text-decoration: none;
                 padding: 10px 20px;
                 border-radius: 5px;
                 transition: background-color 0.3s, color 0.3s;
-                font-weight: bold
+                font-weight: bold;
             }
 
                 nav a:hover {
-                    background-color: #c1a77a; /* Lighter Yellow */
+                    background-color: #c1a77a;
                     color: #fff;
                 }
 
-                nav a.active { /* Style for current page */
-                    background-color: #384b38; /* Night Blue */
+                nav a.active {
+                    background-color: #384b38;
                     color: #fff;
                 }
 
-        /* Footer */
         footer {
-            background-color: #384b38; /* Night Blue */
+            background-color: #384b38;
             color: #fff;
             padding: 5px;
             text-align: center;
         }
 
-        /* About Us Hero Section */
         .about-hero {
-            background-image: url("path/to/background-image.jpg"); /* Optional background image */
+            background-image: url("path/to/background-image.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -148,16 +143,15 @@
                 margin: 0 auto;
             }
 
-        /* Creators Section */
         .creators {
-            background-color: #c1a77a; /* Light Green */
+            background-color: #c1a77a;
             padding: 20px;
         }
 
             .creators h3 {
                 text-align: center;
                 margin-bottom: 15px;
-                color: #384b38; /* Night Blue */
+                color: #384b38;
             }
 
             .creators .creator {
@@ -174,7 +168,7 @@
                 }
 
                     .creators .creator img:hover {
-                        transform: scale(1.1); /* Hover zoom effect */
+                        transform: scale(1.1);
                     }
 
                 .creators .creator p {
@@ -182,14 +176,13 @@
                     color: #333;
                 }
 
-        /* Call to Action Section */
         .cta {
             text-align: center;
             padding: 20px;
         }
 
             .cta button {
-                background-color: #384b38; /* Night Blue */
+                background-color: #384b38;
                 color: #fff;
                 padding: 10px 20px;
                 border: none;
@@ -198,9 +191,8 @@
                 transition: background-color 0.3s;
             }
 
-            .cta
-            :hover {
-                background-color: #384b38; /* Night Blue Shadow */
+            .cta:hover {
+                background-color: #384b38;
             }
     </style>
 </head>
@@ -222,27 +214,23 @@
     <div class="container">
         <div class="chart-container">
             <canvas id="myChart"></canvas>
-
         </div>
     </div>
     <br />
     <h2>Popular Languages</h2>
     <div class="container">
         <div class="chart-container">
-
             <canvas id="lanChart"></canvas>
         </div>
     </div>
     <br />
-    <h2>Popular Book Format</h2>
-
-    <div class=" chart-container canvas">
-        <div class="container">
-            <div class="chart-container">
-                <canvas id="forChart"></canvas>
-            </div>
+    <h2>Popular Ratings</h2>
+    <div class="container">
+        <div class="chart-container">
+            <canvas id="ratingChart"></canvas>
         </div>
     </div>
+
     <script>
         Papa.parse("/dataset/goodreads.csv", {
             download: true,
@@ -254,7 +242,7 @@
 
                 let genresCounts = {};
                 data.forEach(row => {
-                    genresCounts[row['genres']] = (genresCounts[row['genres']] || 0) + 1;
+                    genresCounts[row['genres']] = genresCounts[row['genres']] = (genresCounts[row['genres']] || 0) + 1;
                 });
 
                 let genresData = {
@@ -283,9 +271,6 @@
                         }
                     }
                 });
-
-
-
 
                 let lanCounts = {};
                 data.forEach(row => {
@@ -325,34 +310,31 @@
                         },
                         elements: {
                             line: {
-                                tension: 0, // Optional: Set tension to 0 to disable bezier curves
-                                borderColor: 'rgba(255, 255, 255, 1)', // White color
-                                borderWidth: 3 // Increase the width of the line
+                                tension: 0,
+                                borderColor: 'rgba(255, 255, 255, 1)',
+                                borderWidth: 3
                             }
                         }
                     }
                 });
 
-
-
-
-                let forCounts = {};
+                let ratingCounts = {};
                 data.forEach(row => {
-                    forCounts[row['bookFormat']] = (forCounts[row['bookFormat']] || 0) + 1;
+                    ratingCounts[row['rating']] = (ratingCounts[row['rating']] || 0) + 1;
                 });
 
-                let forData = {
-                    labels: Object.keys(forCounts),
+                let ratingData = {
+                    labels: Object.keys(ratingCounts),
                     datasets: [{
-                        label: 'Popular Book Format',
-                        data: Object.values(forCounts),
-                        backgroundColor: ['#f2f2f2', '#ffcc99', '#cc99ff', '#99ff99', '#cccccc']
+                        label: 'Popular Ratings',
+                        data: Object.values(ratingCounts),
+                        backgroundColor: ['#ff9999', '#ffff99', '#ffb3ff', '#99ccff', '#666666', '#f2f2f2', '#ffcc99', '#cc99ff', '#99ff99', '#cccccc']
                     }]
                 };
 
-                new Chart(document.getElementById('forChart').getContext('2d'), {
+                new Chart(document.getElementById('ratingChart').getContext('2d'), {
                     type: 'pie',
-                    data: forData,
+                    data: ratingData,
                     options: {
                         title: {
                             display: false,
@@ -365,35 +347,18 @@
                                 bottom: 2
                             }
                         },
-                        cutoutPercentage: 0.5, // Adjust the percentage as needed
+                        cutoutPercentage: 0.5,
                         elements: {
                             arc: {
-                                backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)'] // Lighter colors with opacity
+                                backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)']
                             }
                         }
                     }
                 });
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
         });
-
-
-
-
-
     </script>
+
     <br />
 
     <section class="cta">
@@ -411,3 +376,4 @@
     </footer>
 </body>
 </html>
+
