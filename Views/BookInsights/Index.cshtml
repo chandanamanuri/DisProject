@@ -4,26 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Genre Distribution</title>
-    <!-- Include Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
     <title>The Bookish Circle</title>
     <style>
-        html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
+
+            .chart-container > div {
+                margin: 20px;
+                width: 800px;
+            }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        .chart-container canvas {
+            max-width: 50%; /* Adjust the maximum width as needed */
+            height: auto;
+        }
+
 
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("/img/nn.jpg");
+            background-image: url("/img/nn.jpg"); /* Optional background image */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             background-attachment: fixed;
+        }
+
+        /* Header */
+        header {
+            background-color: #384b38; /* Night Blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
         }
 
         .center {
@@ -35,17 +60,8 @@
 
         /* Apply max-width to the image */
         img {
-            max-width: 100%;
+            max-width: 150%;
             height: auto;
-        }
-
-        /* Header */
-        header {
-            background-color: #384b38;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            height: 75px;
         }
 
         h1 {
@@ -54,21 +70,22 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: bold;
-            color: #fff;
         }
 
         h2 {
             font-size: 2em;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Adjust the margin-bottom to decrease the gap */
             letter-spacing: 3px;
+            color: #c89666;
             font-weight: bold;
-            color: #fff;
-            text-align: center;
         }
 
-        canvas {
-            max-width: 600px;
-            margin: 0 auto;
+        h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            color: #ffff;
+            font-weight: bold;
             background-color: #384b38;
         }
 
@@ -77,70 +94,114 @@
             display: flex;
             justify-content: space-around;
             padding: 10px 0;
-            background-color: #c89666;
+            background-color: #c89666; /* Light Yellow */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            clear: both;
         }
 
             nav a {
-                color: #384b38;
+                color: #384b38; /* Night Blue */
                 text-decoration: none;
                 padding: 10px 20px;
                 border-radius: 5px;
                 transition: background-color 0.3s, color 0.3s;
-                font-weight: bold;
+                font-weight: bold
             }
 
                 nav a:hover {
-                    background-color: #c1a77a;
+                    background-color: #c1a77a; /* Lighter Yellow */
                     color: #fff;
                 }
 
-                nav a.active {
-                    background-color: #384b38;
+                nav a.active { /* Style for current page */
+                    background-color: #384b38; /* Night Blue */
                     color: #fff;
                 }
-
-        /* Main content */
-        main {
-            padding: 20px;
-        }
 
         /* Footer */
         footer {
-            background-color: #384b38;
+            background-color: #384b38; /* Night Blue */
             color: #fff;
             padding: 5px;
             text-align: center;
-            height: 50px;
         }
 
-        /* Table styles */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        /* About Us Hero Section */
+        .about-hero {
+            background-image: url("path/to/background-image.jpg"); /* Optional background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 100px 0;
+            color: #fff;
+            text-align: center;
         }
 
-        th, td {
-            padding: 8px;
-            border: 1px solid #384b38;
+            .about-hero h2 {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+            }
+
+            .about-hero p {
+                font-size: 1.2em;
+                line-height: 1.5;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+        /* Creators Section */
+        .creators {
+            background-color: #c1a77a; /* Light Green */
+            padding: 20px;
         }
 
-        th {
-            background-color: #f2f2f2;
-            color: #384b38;
-            text-align: left;
+            .creators h3 {
+                text-align: center;
+                margin-bottom: 15px;
+                color: #384b38; /* Night Blue */
+            }
+
+            .creators .creator {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+                .creators .creator img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    margin-bottom: 10px;
+                    transition: transform 0.3s;
+                }
+
+                    .creators .creator img:hover {
+                        transform: scale(1.1); /* Hover zoom effect */
+                    }
+
+                .creators .creator p {
+                    font-size: 1em;
+                    color: #333;
+                }
+
+        /* Call to Action Section */
+        .cta {
+            text-align: center;
+            padding: 20px;
         }
 
-      tbody tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+            .cta button {
+                background-color: #384b38; /* Night Blue */
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
 
-      
-        tbody tr:hover {
-            background-color: #f2f2f2;
-        } 
+            .cta
+            :hover {
+                background-color: #384b38; /* Night Blue Shadow */
+            }
     </style>
 </head>
 <body>
@@ -156,153 +217,194 @@
         <a asp-controller="SignUp" asp-action="Index">Sign up</a>
         <a asp-controller="BookInsights" asp-action="Index">BookInsights</a>
     </nav>
+    <br />
+    <h2>Popular Genres</h2>
+    <div class="container">
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
 
-    <main>
-        <h2>Chart Data</h2>
-        <!-- Canvas element to render the chart -->
-        <div class="center">
-        <img src="/img/chart.jpeg" alt="Description of the image" width="500" height="300">
         </div>
-        <h2>Top 10 Young Adult Books</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Title</th>
-                    <th>Series</th>
-                    <th>Number of Series</th>
-                    <th>Author</th>
-                    <th>Genres</th>
-                    <th>Publisher</th>
-                    <th>Published Year</th>
-                    <th>First Publish Year</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>The Hunger Games (The Hunger Games, #1)</td>
-                    <td>The Hunger Games</td>
-                    <td>#1</td>
-                    <td>Suzanne Collins</td>
-                    <td>Young Adult, Fiction, Dystopia, Fantasy, Science Fiction, Romance, Adventure, Teen, Post Apocalyptic, Action</td>
-                    <td>Scholastic Press</td>
-                    <td>2008</td>
-                    <td>2008</td>
-                    <td>4.33</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>The Diary of a Young Girl</td>
-                    <td></td>
-                    <td></td>
-                    <td>Anne Frank</td>
-                    <td>Nonfiction, Classics, History, Biography, Memoir, Historical, Holocaust, Autobiography, War, World War II</td>
-                    <td>Bantam</td>
-                    <td>1993</td>
-                    <td>1947</td>
-                    <td>4.15</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Little Women</td>
-                    <td>Little Women</td>
-                    <td>#1</td>
-                    <td>Louisa May Alcott</td>
-                    <td>Classics, Fiction, Historical Fiction, Young Adult, Romance, Historical, Literature, Childrens, Classic Literature, Novels</td>
-                    <td>Signet Classics</td>
-                    <td>2004</td>
-                    <td>1880</td>
-                    <td>4.09</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>The Fault in Our Stars</td>
-                    <td></td>
-                    <td></td>
-                    <td>John Green</td>
-                    <td>Young Adult, Romance, Fiction, Contemporary, Realistic Fiction, Teen, Coming Of Age, Drama, Novels, Love</td>
-                    <td>Dutton Books</td>
-                    <td>2012</td>
-                    <td>2012</td>
-                    <td>4.21</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Anne of Green Gables</td>
-                    <td>Anne of Green Gables</td>
-                    <td>#1</td>
-                    <td>L.M. Montgomery</td>
-                    <td>Classics, Fiction, Young Adult, Childrens, Historical Fiction, Middle Grade, Historical, Audiobook, Canada, Coming Of Age</td>
-                    <td>Signet Book</td>
-                    <td>2003</td>
-                    <td>1908</td>
-                    <td>4.26</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>The Lightning Thief</td>
-                    <td>Percy Jackson and the Olympians</td>
-                    <td>#1</td>
-                    <td>Rick Riordan</td>
-                    <td>Fantasy, Young Adult, Mythology, Fiction, Middle Grade, Adventure, Childrens, Urban Fantasy, Greek Mythology, Magic</td>
-                    <td>Disney Hyperion Books</td>
-                    <td>2006</td>
-                    <td>2005</td>
-                    <td>4.26</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>The Giver</td>
-                    <td>The Giver</td>
-                    <td>#1</td>
-                    <td>Lois Lowry</td>
-                    <td>Young Adult, Fiction, Classics, Dystopia, Science Fiction, Fantasy, School, Childrens, Middle Grade, Read For School</td>
-                    <td>Ember</td>
-                    <td>2006</td>
-                    <td>1993</td>
-                    <td>4.13</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>City of Bones</td>
-                    <td>The Mortal Instruments</td>
-                    <td>#1</td>
-                    <td>Cassandra Clare</td>
-                    <td>Fantasy, Young Adult, Paranormal, Romance, Urban Fantasy, Fiction, Vampires, Supernatural, Angels, Magic</td>
-                    <td>Margaret K. McElderry Books</td>
-                    <td>2007</td>
-                    <td>2007</td>
-                    <td>4.1</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>The Perks of Being a Wallflower</td>
-                    <td></td>
-                    <td></td>
-                    <td>Stephen Chbosky</td>
-                    <td>Young Adult, Fiction, Contemporary, Coming Of Age, Romance, Realistic Fiction, LGBT, Classics, Mental Health, Teen</td>
-                    <td>MTV Books/Pocket Books</td>
-                    <td>1999</td>
-                    <td>1999</td>
-                    <td>4.2</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>A Wrinkle in Time</td>
-                    <td>Time Quintet</td>
-                    <td>#1</td>
-                    <td>Madeleine L'Engle</td>
-                    <td>Fantasy, Fiction, Classics, Young Adult, Science Fiction, Childrens, Middle Grade, Time Travel, Adventure, Science Fiction Fantasy</td>
-                    <td>Square Fish</td>
-                    <td>1973</td>
-                    <td>1962</td>
-                    <td>4</td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
+    </div>
+    <br />
+    <h2>Popular Languages</h2>
+    <div class="container">
+        <div class="chart-container">
+
+            <canvas id="lanChart"></canvas>
+        </div>
+    </div>
+    <br />
+    <h2>Popular Book Format</h2>
+
+    <div class=" chart-container canvas">
+        <div class="container">
+            <div class="chart-container">
+                <canvas id="forChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <script>
+        Papa.parse("/dataset/goodreads.csv", {
+            download: true,
+            header: true,
+            dynamicTyping: true,
+            skipEmptyLines: true,
+            complete: function (results) {
+                const data = results.data;
+
+                let genresCounts = {};
+                data.forEach(row => {
+                    genresCounts[row['genres']] = (genresCounts[row['genres']] || 0) + 1;
+                });
+
+                let genresData = {
+                    labels: Object.keys(genresCounts),
+                    datasets: [{
+                        label: 'Popular Genre',
+                        data: Object.values(genresCounts),
+                        backgroundColor: ['#ff9999', '#ffff99', '#ffb3ff', '#99ccff', '#666666', '#f2f2f2', '#ffcc99', '#cc99ff', '#99ff99', '#cccccc']
+                    }]
+                };
+
+                new Chart(document.getElementById('myChart').getContext('2d'), {
+                    type: 'bar',
+                    data: genresData,
+                    options: {
+                        title: {
+                            display: false,
+                            fontStyle: 'bold',
+                            fontSize: 18
+                        },
+                        layout: {
+                            padding: {
+                                top: 2,
+                                bottom: 2
+                            }
+                        }
+                    }
+                });
+
+
+
+
+                let lanCounts = {};
+                data.forEach(row => {
+                    lanCounts[row['language']] = (lanCounts[row['language']] || 0) + 1;
+                });
+
+                let lanData = {
+                    labels: Object.keys(lanCounts),
+                    datasets: [{
+                        label: 'Popular Language',
+                        data: Object.values(lanCounts),
+                        backgroundColor: ['#ff9999', '#ffff99', '#ffb3ff', '#99ccff']
+                    }]
+                };
+
+                new Chart(document.getElementById('lanChart').getContext('2d'), {
+                    type: 'line',
+                    data: lanData,
+                    options: {
+                        title: {
+                            display: false,
+                            fontStyle: 'bold',
+                            fontSize: 18
+                        },
+                        layout: {
+                            padding: {
+                                top: 2,
+                                bottom: 2
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        },
+                        elements: {
+                            line: {
+                                tension: 0, // Optional: Set tension to 0 to disable bezier curves
+                                borderColor: 'rgba(255, 255, 255, 1)', // White color
+                                borderWidth: 3 // Increase the width of the line
+                            }
+                        }
+                    }
+                });
+
+
+
+
+                let forCounts = {};
+                data.forEach(row => {
+                    forCounts[row['bookFormat']] = (forCounts[row['bookFormat']] || 0) + 1;
+                });
+
+                let forData = {
+                    labels: Object.keys(forCounts),
+                    datasets: [{
+                        label: 'Popular Book Format',
+                        data: Object.values(forCounts),
+                        backgroundColor: ['#f2f2f2', '#ffcc99', '#cc99ff', '#99ff99', '#cccccc']
+                    }]
+                };
+
+                new Chart(document.getElementById('forChart').getContext('2d'), {
+                    type: 'pie',
+                    data: forData,
+                    options: {
+                        title: {
+                            display: false,
+                            fontStyle: 'bold',
+                            fontSize: 18
+                        },
+                        layout: {
+                            padding: {
+                                top: 2,
+                                bottom: 2
+                            }
+                        },
+                        cutoutPercentage: 0.5, // Adjust the percentage as needed
+                        elements: {
+                            arc: {
+                                backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)'] // Lighter colors with opacity
+                            }
+                        }
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+    </script>
+    <br />
+
+    <section class="cta">
+        <p><button onclick="goToPage2()">Join the club!</button></p>
+
+        <script>
+            function goToPage2() {
+                window.location.href = "SignUp";
+            }
+        </script>
+    </section>
 
     <footer>
         <p>&copy; 2024 The Bookish Circle</p>
