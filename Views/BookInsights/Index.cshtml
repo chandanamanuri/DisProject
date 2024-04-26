@@ -13,6 +13,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
             .chart-container > div {
@@ -29,6 +30,7 @@
         .chart-container canvas {
             max-width: 50%; /* Adjust the maximum width as needed */
             height: auto;
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
 
@@ -41,6 +43,9 @@
             background-repeat: no-repeat;
             background-position: center;
             background-attachment: fixed;
+            font-weight: bold;
+            color: #ffff;
+            
         }
 
         /* Header */
@@ -76,7 +81,7 @@
             font-size: 2em;
             margin-bottom: 10px; /* Adjust the margin-bottom to decrease the gap */
             letter-spacing: 3px;
-            color: #c89666;
+            color: #e1b382;
             font-weight: bold;
         }
 
@@ -88,6 +93,20 @@
             font-weight: bold;
             background-color: #384b38;
         }
+
+        .data {
+            background-color: #e1b382; /* Sand Tan */
+            color: #384b38; /* Darker text for contrast */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+            .data p {
+                text-align: center;
+                font-size: 1.2em;
+                line-height: 1.5; /* Improve readability */
+            }
 
         /* Navigation */
         nav {
@@ -218,6 +237,12 @@
         <a asp-controller="BookInsights" asp-action="Index">BookInsights</a>
     </nav>
     <br />
+    <section class="data">
+        <p>Dive into the captivating world of young adult fiction with the data presented below. Sourced from the dynamic community of Goodreads members, 
+            the information for these charts was painstakingly extracted from the top 100 Young Adult Fiction books, each one a gem in its own right within the vast Goodreads dataset.</p>
+        <p>Discover the trends that shape this literary landscape as we unveil the most beloved genres, preferred languages, and sought-after book formats. </p>
+        <p> For those curious to delve deeper, venture into the dataset realms by clicking <a href="https://data.world/yansian/top-100-young-adult-fiction">here</a>. Happy exploring!"  </p>
+    </section>
     <h2>Popular Genres</h2>
     <div class="container">
         <div class="chart-container">
@@ -244,6 +269,11 @@
         </div>
     </div>
     <script>
+        Chart.defaults.font.family = "Lato";
+        Chart.defaults.font.size = 12;
+        Chart.defaults.color = "white";
+        //Chart.defaults.scales.xAxes[0].ticks.fontColor = 'white';
+        // Chart.defaultsfontWeight = "bold";
         Papa.parse("/dataset/goodreads.csv", {
             download: true,
             header: true,
@@ -273,7 +303,9 @@
                         title: {
                             display: false,
                             fontStyle: 'bold',
-                            fontSize: 18
+                            fontSize: 18,
+                            fontWeight: 'bold'
+
                         },
                         layout: {
                             padding: {
@@ -281,6 +313,7 @@
                                 bottom: 2
                             }
                         }
+
                     }
                 });
 
@@ -308,7 +341,9 @@
                         title: {
                             display: false,
                             fontStyle: 'bold',
-                            fontSize: 18
+                            fontSize: 18,
+                            fontWeight: 'bold'
+
                         },
                         layout: {
                             padding: {
@@ -319,7 +354,19 @@
                         scales: {
                             yAxes: [{
                                 ticks: {
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    fontColor: 'white', // Change the color of y-axis labels
+                                },
+                                gridLines: {
+                                    color: 'rgba(255, 255, 255, 1)', // Change the color of y-axis grid lines
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontColor: 'white', // Change the color of x-axis labels
+                                },
+                                gridLines: {
+                                    color: 'rgba(255, 255, 255, 1)', // Change the color of x-axis grid lines
                                 }
                             }]
                         },
@@ -328,7 +375,13 @@
                                 tension: 0, // Optional: Set tension to 0 to disable bezier curves
                                 borderColor: 'rgba(255, 255, 255, 1)', // White color
                                 borderWidth: 3 // Increase the width of the line
-                            }
+                            },
+                                 
+                                point: {
+                                    radius: 6, // Adjust the radius of the points
+                                    backgroundColor: 'rgba(255, 255, 255, 1)', // White color
+                                    borderWidth: 3 // Increase the width of the border
+                                }
                         }
                     }
                 });
@@ -346,7 +399,14 @@
                     datasets: [{
                         label: 'Popular Book Format',
                         data: Object.values(forCounts),
-                        backgroundColor: ['#f2f2f2', '#ffcc99', '#cc99ff', '#99ff99', '#cccccc']
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.7)',    // Red
+                            'rgba(54, 162, 235, 0.7)',     // Blue
+                            'rgba(255, 206, 86, 0.7)',     // Yellow
+                            'rgba(75, 192, 192, 0.7)',     // Green
+                            'rgba(153, 102, 255, 0.7)'     // Purple (New color)
+                        ]
+
                     }]
                 };
 
@@ -357,7 +417,9 @@
                         title: {
                             display: false,
                             fontStyle: 'bold',
-                            fontSize: 18
+                            fontSize: 18,
+                            fontWeight: 'bold',
+                            
                         },
                         layout: {
                             padding: {
@@ -368,7 +430,14 @@
                         cutoutPercentage: 0.5, // Adjust the percentage as needed
                         elements: {
                             arc: {
-                                backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)'] // Lighter colors with opacity
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.7)',    // Red
+                                    'rgba(54, 162, 235, 0.7)',     // Blue
+                                    'rgba(255, 206, 86, 0.7)',     // Yellow
+                                    'rgba(75, 192, 192, 0.7)',     // Green
+                                    'rgba(153, 102, 255, 0.7)'     // Purple (New color)
+                                ]
+                                // Lighter colors with opacity
                             }
                         }
                     }
